@@ -1,0 +1,27 @@
+html {
+  background: url("/assets/site/mapblue.jpg") no-repeat center center fixed;
+}
+
+.container {
+  display: inline-block;
+  border-style: dotted;
+  width: 480px;
+}
+
+.profiles {
+  display: inline-block;
+  padding: 0.3em;
+}
+
+.profileName {
+  text-align: center;
+}
+
+.rightSidePanel {
+  display: inline-block;
+  background-color: rgba(45, 56, 63, 0.9);
+  height: 100vh;
+  vertical-align: top;
+  width: 400px;
+  border-style: dotted;
+}
