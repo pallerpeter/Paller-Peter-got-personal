@@ -22,6 +22,31 @@ html {
   background-color: rgba(45, 56, 63, 0.9);
   height: 100vh;
   vertical-align: top;
-  width: 400px;
+  width: 300px;
   border-style: dotted;
+}
+
+.divOfCharacterClass {
+  font-size: 1.2em;
+  text-align: justify;
+  padding: 4px;
+}
+
+.divOfSearchClass {
+  border: solid 1px;
+  border-color: rgb(63, 63, 68);
+  position: absolute;
+  bottom: 0px;
+  height: 1.5em;
+}
+
+.searchFieldClass {
+  display: inline;
+  font-size: 1.2em;
+  color: rgb(212, 205, 195);
+  bottom: 0px;
+  border: solid 1px;
+  border-color: darkslategrey;
+  background: rgba(107, 165, 189, 0.699);
+  z-index: 10;
 }
