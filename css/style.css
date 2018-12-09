@@ -1,52 +1,74 @@
 html {
   background: url("/assets/site/mapblue.jpg") no-repeat center center fixed;
+  padding: 0px;
 }
 
 .container {
   display: inline-block;
-  border-style: dotted;
-  width: 480px;
+  width: 1000px;
 }
 
 .profiles {
   display: inline-block;
-  padding: 0.3em;
+  max-width: 100px;
+  padding: 0.63em;
 }
 
 .profileName {
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+}
+
+.container_class {
+  display: inline-block;
   text-align: center;
 }
 
 .rightSidePanel {
-  display: inline-block;
   background-color: rgba(45, 56, 63, 0.9);
+  border-style: dotted;
+  display: inline-block;
   height: 100vh;
   vertical-align: top;
-  width: 300px;
-  border-style: dotted;
+  width: 315px;
 }
 
 .divOfCharacterClass {
   font-size: 1.2em;
-  text-align: justify;
   padding: 4px;
+  text-align: justify;
 }
 
 .divOfSearchClass {
-  border: solid 1px;
-  border-color: rgb(63, 63, 68);
-  position: absolute;
+  border: solid 1px rgb(63, 63, 68);
   bottom: 0px;
   height: 1.5em;
+  position: absolute;
 }
 
 .searchFieldClass {
-  display: inline;
-  font-size: 1.2em;
-  color: rgb(212, 205, 195);
-  bottom: 0px;
+  background: rgb(211, 225, 226);
   border: solid 1px;
   border-color: darkslategrey;
-  background: rgba(107, 165, 189, 0.699);
-  z-index: 10;
+  bottom: 0px;
+  color: rgb(46, 44, 41);
+  display: inline;
+  font-size: 1.2em;
+}
+
+.buttonFieldClass {
+  border: solid 1px rgb(63, 63, 68);
+  bottom: 0px;
+  font-size: 1em;
+  margin: 2px;
+  margin-bottom: 30px;
+  padding: px;
+  position: absolute;
+  z-index: 2;
+}
+
+.searchButton {
+  bottom: 0px;
+  display: inline;
 }
