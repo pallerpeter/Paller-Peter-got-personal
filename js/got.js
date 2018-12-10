@@ -24,55 +24,9 @@ getGameOfThronesCharacterDatas(
 // Live servert használd mindig!!!!!
 /* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
 
-function onlyAliveCharacters(userDatas) {
-  var arrayOfAliveCharacters = [];
-  for (var i = 0; i < userDatas.length; i++) {
-    if (userDatas[i].dead !== true) {
-      arrayOfAliveCharacters.push(userDatas[i]);
-    }
-  }
-  generateElements(arrayOfAliveCharacters);
-  makeRightSidePanel();
-  getSearchFieldToRightPanel();
-  search(arrayOfAliveCharacters);
-  return arrayOfAliveCharacters;
-}
-
-function getContainerElement() {
-  var container = document.querySelector('.container');
-  return container;
-}
-
-function showElementContent(index) {
-  var container = getContainerElement();
-  var div = container.children;
-  var arr = onlyAliveCharacters();
-  divOfBio.innerHTML = arr[index].bio;
-}
-
-function addCustomListenerForDiv(element, index) {
-  element.addEventListener('click', function () {
-    showElementContent(index);
-  });
-}
-
-function generateElements(arrayOfAliveCharacters) {
-  var container = getContainerElement();
-  for (var i = 0; i < arrayOfAliveCharacters.length; i += 1) {
-    if (arrayOfAliveCharacters[i].dead !== true) {
-      var div = document.createElement('div');
-      div.setAttribute('class', 'container_class');
-      div.innerHTML = `<div class='profiles'> <img src=/${arrayOfAliveCharacters[i].portrait}>
-       <div><p class='profileName'>${arrayOfAliveCharacters[i].name}</p>
-      </div></div> `;
-      addCustomListenerForDiv(div, i);
-      container.appendChild(div);
-    }
-  }
-}
-
 var div2 = document.createElement('div');
 var divOfPicture = document.createElement('div');
+var divOfName = document.createElement('div');
 var divOfSymbol = document.createElement('div');
 var divOfBio = document.createElement('div');
 var divOfSearchButton = document.createElement('div');
@@ -85,14 +39,17 @@ function makeRightSidePanel() {
   div2.className = 'rightSidePanel';
   var main = document.querySelector('main');
   main.appendChild(div2);
-  div2.appendChild(divOfBio);
-  divOfBio.innerHTML = 'Valar Morghulis';
+  divOfSymbol.className = 'divOfSymbolClass';
   divOfBio.className = 'divOfBioClass';
-  div2.appendChild(divOfSymbol);
   div2.appendChild(divOfPicture);
+  div2.appendChild(divOfName);
+  div2.appendChild(divOfSymbol);
+  div2.appendChild(divOfBio);
   div2.appendChild(divOfSearchButton);
   divOfSearchButton.appendChild(searchButton);
   div2.appendChild(divOfSearch);
+  divOfName.className = 'divOfNameClass';
+  divOfPicture.className = 'divOfPictureClass';
   divOfSearch.className = 'divOfSearchClass';
   divOfSearchButton.className = 'buttonFieldClass';
 }
@@ -105,6 +62,61 @@ function getSearchFieldToRightPanel() {
   searchField.placeholder = 'keresés';
   searchField.value = '';
 }
+
+function onlyAliveCharacters(userDatas) {
+  var arrayOfAliveCharacters = [];
+  for (var i = 0; i < userDatas.length; i++) {
+    if (userDatas[i].dead !== true) {
+      arrayOfAliveCharacters.push(userDatas[i]);
+    }
+  }
+  generateElements(arrayOfAliveCharacters);
+  makeRightSidePanel();
+  getSearchFieldToRightPanel();
+  search(arrayOfAliveCharacters);
+}
+
+function getContainerElement() {
+  var container = document.querySelector('.container');
+  return container;
+}
+
+function showElementContent(index, arrayOfAliveCharacters) {
+  var container = getContainerElement();
+  // var paragraph = container.children;
+  divOfPicture.innerHTML = `<img class='picture' src=/${arrayOfAliveCharacters[index].picture}>`;
+  divOfName.innerHTML = `<p class='pTagOfName'>${arrayOfAliveCharacters[index].name}</p>`;
+  if (arrayOfAliveCharacters[index].house) {
+    divOfSymbol.innerHTML = `<img src=/assets/houses/${arrayOfAliveCharacters[index].house}.png class="symbol">`;
+  } else {
+    divOfSymbol.innerHTML = '';
+  }
+  divOfBio.innerHTML = `<p class='pTagOfBio'>${arrayOfAliveCharacters[index].bio}</p>`;
+  // alert(paragraph[index].textContent);
+}
+
+
+function addCustomListenerForDiv(element, index, arrayOfAliveCharacters) {
+  element.addEventListener('click', function () {
+    showElementContent(index, arrayOfAliveCharacters);
+  });
+}
+
+function generateElements(arrayOfAliveCharacters) {
+  var container = getContainerElement();
+  for (var i = 0; i < arrayOfAliveCharacters.length; i += 1) {
+    if (arrayOfAliveCharacters[i].dead !== true) {
+      var div = document.createElement('div');
+      div.setAttribute('class', 'container_class');
+      div.innerHTML = `<div class='profiles'> <img src=/${arrayOfAliveCharacters[i].portrait}>
+       <div><p class='profileName'>${arrayOfAliveCharacters[i].name}</p>
+      </div></div> `;
+      addCustomListenerForDiv(div, i, arrayOfAliveCharacters);
+      container.appendChild(div);
+    }
+  }
+}
+
 
 function search(arrayOfAliveCharacters) {
   var searchText = document.querySelector('.searchFieldClass').value.toLowerCase();
