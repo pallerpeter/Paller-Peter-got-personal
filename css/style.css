@@ -49,6 +49,7 @@ body {
 
 .divOfPictureClass {
   max-width: 310px;
+  height: 200px;
 }
 
 .picture {
@@ -83,8 +84,9 @@ body {
 }
 
 .pTagOfBio {
-  font-size: 1em;
   color: rgb(211, 225, 226);
+  font-size: 1em;
+  text-align: justify;
 }
 
 
@@ -95,34 +97,29 @@ body {
 }
 
 .divOfSearchClass {
-  border: solid 1px rgb(63, 63, 68);
-  bottom: 10px;
-  height: 1.5em;
   position: absolute;
+  border: solid 1px rgb(63, 63, 68);
+  bottom: 30px;
+  float: right;
+  height: 1.5em;
+  padding: 10px;
+
 }
 
 .searchFieldClass {
   background: rgb(211, 225, 226);
-  border: solid 1px;
   border-color: darkslategrey;
-  bottom: 0px;
+  border-radius: 5px;
   color: rgb(46, 44, 41);
-  display: inline;
   font-size: 1.2em;
-}
-
-.buttonFieldClass {
-  border: solid 1px rgb(63, 63, 68);
-  bottom: 10px;
-  font-size: 1em;
-  margin: 2px;
-  margin-bottom: 30px;
-  padding: px;
-  position: absolute;
-  z-index: 2;
+  width: 200px;
+  margin-bottom: 15px;
 }
 
 .searchButton {
-  bottom: 0px;
-  display: inline;
+  background: rgb(209, 214, 212);
+  border-radius: 5px;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  padding: 10px;
 }

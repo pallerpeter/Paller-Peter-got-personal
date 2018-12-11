@@ -29,10 +29,11 @@ var divOfPicture = document.createElement('div');
 var divOfName = document.createElement('div');
 var divOfSymbol = document.createElement('div');
 var divOfBio = document.createElement('div');
+var divOfSearchButton = document.createElement('div');
 var divOfSearch = document.createElement('div');
 var searchButton = document.createElement('button');
 searchButton.className = 'searchButton';
-searchButton.innerHTML = '>';
+searchButton.innerHTML = 'search';
 
 function makeRightSidePanel() {
   div2.className = 'rightSidePanel';
@@ -44,15 +45,17 @@ function makeRightSidePanel() {
   div2.appendChild(divOfName);
   div2.appendChild(divOfSymbol);
   div2.appendChild(divOfBio);
+  div2.appendChild(divOfSearchButton);
+  divOfSearchButton.appendChild(searchButton);
   div2.appendChild(divOfSearch);
   divOfName.className = 'divOfNameClass';
   divOfPicture.className = 'divOfPictureClass';
   divOfSearch.className = 'divOfSearchClass';
+  divOfSearchButton.className = 'buttonFieldClass';
 }
 
 function getSearchFieldToRightPanel() {
   var searchField = document.createElement('input');
-  divOfSearch.appendChild(searchButton);
   divOfSearch.appendChild(searchField);
   searchField.type = 'text';
   searchField.className = 'searchFieldClass';
@@ -120,11 +123,13 @@ function showElementContent(index, arrayOfAliveCharacters) {
   // alert(paragraph[index].textContent);
 }
 
+
 function addCustomListenerForDiv(element, index, arrayOfAliveCharacters) {
   element.addEventListener('click', function () {
     showElementContent(index, arrayOfAliveCharacters);
   });
 }
+
 
 function searchButtonEventListener(arrayOfAliveCharacters) {
   var button = document.querySelector('.searchButton');
