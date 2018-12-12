@@ -56,7 +56,6 @@ function getSearchFieldToRightPanel() {
   divOfSearch.appendChild(searchField);
   searchField.type = 'text';
   searchField.className = 'searchFieldClass';
-  searchField.placeholder = 'keresés';
   searchField.value = '';
 }
 
@@ -92,7 +91,7 @@ function generateElements(arrayOfAliveCharacters) {
     if (arrayOfAliveCharacters[i].dead !== true) {
       var div = document.createElement('div');
       div.setAttribute('class', 'container_class');
-      div.innerHTML = `<div class='profiles'> <img src=/${arrayOfAliveCharacters[i].portrait}>
+      div.innerHTML = `<div class='profiles'> <img class= 'profiles__img' src=/${arrayOfAliveCharacters[i].portrait}>
        <div><p class='profileName'>${arrayOfAliveCharacters[i].name}</p>
       </div></div> `;
       addCustomListenerForDiv(div, i, arrayOfAliveCharacters);
